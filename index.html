@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bubble Pop Vrilya</title>
+<style>
+body{margin:0;background:linear-gradient(#ff9ac8,#a18cd1);font-family:sans-serif;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+h1{color:white;text-align:center;text-shadow:0 2px 5px #ff4d9a}
+#score{color:white;font-size:22px;font-weight:bold}
+#game{position:relative;width:95vw;max-width:400px;height:65vh;background:rgba(255,255,255,0.3);border-radius:20px;overflow:hidden;border:3px solid white;margin-top:10px}
+.bubble{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;animation:float linear}
+@keyframes float{from{transform:translateY(100%)}to{transform:translateY(-150%)}}
+#btn{margin-top:15px;padding:12px 30px;border:none;background:white;color:#ff4d9a;font-weight:bold;border-radius:20px;font-size:18px;cursor:pointer}
+</style>
+</head>
+<body>
+<h1>💖 Bubble Pop Vrilya 💖</h1>
+<div id="score">Score: 0</div>
+<div id="game"></div>
+<button id="btn" onclick="startGame()">MULAI MAIN</button>
+<script>
+let score=0,active=false,t;
+const game=document.getElementById('game');
+const sEl=document.getElementById('score');
+function startGame(){score=0;active=true;game.innerHTML='';sEl.textContent='Score: 0';clearInterval(t);t=setInterval(makeB,500);setTimeout(()=>{active=false;clearInterval(t);alert('Selesai! Score: '+score+' 💖')},30000)}
+function makeB(){if(!active)return;let b=document.createElement('div');b.className='bubble';let sz=Math.random()*40+30;let lf=Math.random()*(game.clientWidth-sz);b.style.width=sz+'px';b.style.height=sz+'px';b.style.left=lf+'px';b.style.bottom='-50px';b.style.background=['#ff4d9a','#00d2ff','#ffeb3b','#7cff7c','#ff8c42'][Math.floor(Math.random()*5)];b.textContent=['💖','✨','🌸','💜','⭐'][Math.floor(Math.random()*5)];let d=Math.random()*2+3;b.style.animationDuration=d+'s';b.onclick=()=>{score+=10;sEl.textContent='Score: '+score;b.remove()};game.appendChild(b);setTimeout(()=>b.remove(),d*1000)}
+</script>
+</body>
+</html>
