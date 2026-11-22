@@ -1,0 +1,70 @@
+<!-- Game Bubble Pop by Vrilyaa X RPL 2 - Step 4 Final -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Game - Bubble Pop by Vrilyaa</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #gameArea{
+      width:100%; height:75vh; background:white; 
+      border:3px solid #69ddff; border-radius:20px; 
+      position:relative; overflow:hidden; margin-top:10px;
+    }
+    .bubble{
+      position:absolute; border-radius:50%; 
+      background:#69ddff; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      color:white; font-weight:bold; user-select:none;
+      animation: naik 6s linear;
+    }
+    @keyframes naik{
+      0%{ transform:translateY(75vh); }
+      100%{ transform:translateY(-100px); }
+    }
+  </style>
+</head>
+<body style="text-align:center; padding:20px;">
+  <h1 style="color:#69ddff;">BUBBLE POP BY VRILYAA</h1>
+  <h2>Skor: <span id="skor">0</span></h2>
+  <button onclick="mulaiGame()" style="background:#69ddff; color:white; padding:10px 20px; border:none; border-radius:12px; font-weight:bold;">Mulai Main</button>
+  <a href="index.html" style="margin-left:10px; color:#69ddff;">Kembali</a>
+  <div id="gameArea"></div>
+
+<script>
+// Game logic by Vrilyaa - ANTI AI
+let skor = 0;
+let gameJalan = false;
+
+function mulaiGame(){
+  skor = 0; gameJalan = true;
+  document.getElementById('skor').innerText = skor;
+  document.getElementById('gameArea').innerHTML = '';
+  setInterval(buatBalon, 800);
+}
+
+function buatBalon(){
+  if(!gameJalan) return;
+  let area = document.getElementById('gameArea');
+  let balon = document.createElement('div');
+  balon.className = 'bubble';
+  let ukuran = Math.random()*40 + 30;
+  balon.style.width = ukuran + 'px';
+  balon.style.height = ukuran + 'px';
+  balon.style.left = Math.random()*(area.clientWidth - ukuran) + 'px';
+  balon.style.background = '#69ddff';
+  balon.innerText = 'POP!';
+  balon.style.fontSize = '10px';
+  
+  balon.onclick = function(){
+    skor += 10;
+    document.getElementById('skor').innerText = skor;
+    this.remove();
+  };
+  
+  area.appendChild(balon);
+  setTimeout(()=>{ if(balon.parentNode) balon.remove(); }, 6000);
+}
+</script>
+</body>
+</html>

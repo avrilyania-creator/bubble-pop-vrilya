@@ -1,0 +1,34 @@
+<!-- Register by Vrilyaa X RPL 2 - Step 3 Bisa Nyimpen -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar - Bubble Pop by Vrilyaa</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="hero" style="min-height:100vh; display:flex; align-items:center; justify-content:center;">
+    <div style="background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.1); width:100%; max-width:400px; text-align:center;">
+      <h2 style="color:#69ddff;">DAFTAR AKUN BARU</h2>
+      <p>Buat akun Bubble Pop versi Vrilyaa</p>
+      <input id="nama" type="text" placeholder="Nama Lengkap" style="width:100%; padding:12px; margin:10px 0; border-radius:12px; border:1px solid #ccc;">
+      <input id="email" type="email" placeholder="Email" style="width:100%; padding:12px; margin:10px 0; border-radius:12px; border:2px solid #69ddff;">
+      <input id="pass" type="password" placeholder="Password" style="width:100%; padding:12px; margin:10px 0; border-radius:12px; border:2px solid #69ddff;">
+      <button onclick="daftar()" style="width:100%; background:#69ddff; color:white; padding:12px; border-radius:12px; border:none; font-weight:bold; margin-top:10px; cursor:pointer;">Daftar Sekarang</button>
+      <p style="margin-top:15px;">Sudah punya akun? <a href="login.html" style="color:#69ddff; font-weight:bold;">Login disini</a></p>
+    </div>
+  </div>
+<script>
+// Step 3 by Vrilyaa - simpen pakai localStorage
+function daftar(){
+  let nama = document.getElementById('nama').value;
+  let email = document.getElementById('email').value;
+  let pass = document.getElementById('pass').value;
+  if(nama=='' || email=='' || pass==''){ alert('Isi semua dulu ya Vrilyaa!'); return; }
+  localStorage.setItem('vrilyaa_user', JSON.stringify({nama,email,pass}));
+  alert('Berhasil Daftar ' + nama + '! Silahkan Login!');
+  window.location.href = 'login.html';
+}
+</script>
+</body>
+</html>

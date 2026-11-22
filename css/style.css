@@ -1,0 +1,24 @@
+/* style.css - punya Vrilyaa - X RPL 2 - custom biru + Fredoka */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Fredoka', sans-serif; }
+body { background:#FFF8FA; color:#333; }
+nav { display:flex; justify-content:space-between; align-items:center; padding:15px 30px; background:white; box-shadow:0 2px 15px rgba(255,105,180,0.1); position:sticky; top:0; z-index:10; }
+nav h1 { color:#69d0ff; font-weight:800; letter-spacing:1px; }
+nav a { margin-left:15px; text-decoration:none; color:#333; font-weight:600; }
+.btn-pink, .btn { background:#69d0ff; color:white; padding:10px 22px; border-radius:12px; text-decoration:none; font-weight:bold; display:inline-block; transition:0.2s; }
+.btn-pink:hover, .btn:hover { background:#149dff; transform:scale(1.05); }
+.hero { text-align:center; padding:70px 20px; max-width:900px; margin:auto; }
+.hero-bubbles { font-size:28px; margin-bottom:10px; }
+.hero h2 { font-size:52px; color:#4f14ff; font-weight:800; text-shadow: 2px 2px 0px #FFD1DC; }
+.hero h3 { color:#666; margin:10px 0 15px; font-size:20px; }
+.hero p { color:#555; line-height:1.6; }
+.score-info { display:flex; justify-content:center; gap:12px; margin:30px 0; flex-wrap:wrap; }
+.color-item { display:flex; align-items:center; gap:8px; background:white; padding:10px 15px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.05); border:1px solid #FFE4EC; font-size:14px; font-weight:600; }
+.dot { width:16px; height:16px; border-radius:50%; }
+.dot.pink { background:#FF69B4; } .dot.blue { background:#4A90E2; } .dot.yellow { background:#FFD700; } .dot.purple { background:#9B59B6; }
+.hero-btn { margin-top:25px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap; }
+.btn-outline { border:2px solid #69ddff; color:#69ddff; padding:10px 22px; border-radius:12px; text-decoration:none; font-weight:600; }
+.f-card { transition:0.2s; } .f-card:hover { transform:translateY(-5px); }
+body {
+  background: #a8edea !important;
+}
